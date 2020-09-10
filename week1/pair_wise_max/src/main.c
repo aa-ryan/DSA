@@ -35,7 +35,7 @@ long long int maxpairwiseresult(int a[], int size) {
     //     }
     // }
     res = (long long)a[size - 1] * (long long) a[size - 2];
-    
+
     return res;
 }
 

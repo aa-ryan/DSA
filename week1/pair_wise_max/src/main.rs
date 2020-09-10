@@ -13,7 +13,6 @@ fn main() {
         return;
     }
 
-    // let mut test = [0, 10000];
     let res = maxpairwiseproduct(v);
 
     println!("{}", res);
