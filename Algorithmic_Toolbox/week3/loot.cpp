@@ -24,6 +24,7 @@ int main()
         v.pb(make_tuple(vi, wi, vi/wi));
     }
 
+
     sort(v.begin(), v.end(), sortbythirdelement);
     double res = 0;
 
