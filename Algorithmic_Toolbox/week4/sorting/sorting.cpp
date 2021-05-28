@@ -2,8 +2,34 @@
 #include <vector>
 #include <cstdlib>
 
-using std::vector;
 using std::swap;
+using std::vector;
+
+void print(vector<int> &a)
+{
+  for (auto x : a)
+  {
+    std::cout << x << ",";
+  }
+  std::cout << std::endl;
+}
+int partition2(vector<int> &a, int l, int r)
+{
+  print(a);
+  int x = a[l];
+  int j = l;
+  for (int i = l + 1; i <= r; i++)
+  {
+    if (a[i] <= x)
+    {
+      j++;
+      swap(a[i], a[j]);
+    }
+  }
+  swap(a[l], a[j]);
+  print(a);
+  return j;
+}
 
 vector<int> partition3(vector<int> &a, int l, int r)
 {
@@ -33,9 +59,10 @@ vector<int> partition3(vector<int> &a, int l, int r)
   return vector<int>{lt, gt};
 }
 
-
-void randomized_quick_sort(vector<int> &a, int l, int r) {
-  if (l >= r) {
+void randomized_quick_sort(vector<int> &a, int l, int r)
+{
+  if (l >= r)
+  {
     return;
   }
 
@@ -45,18 +72,21 @@ void randomized_quick_sort(vector<int> &a, int l, int r) {
   int m1 = m[0];
   int m2 = m[1];
   randomized_quick_sort(a, l, m1 - 1);
-  randomized_quick_sort(a, m2 - 1, r);
+  randomized_quick_sort(a, m2 + 1, r);
 }
 
-int main() {
+int main()
+{
   int n;
   std::cin >> n;
   vector<int> a(n);
-  for (size_t i = 0; i < a.size(); ++i) {
+  for (size_t i = 0; i < a.size(); ++i)
+  {
     std::cin >> a[i];
   }
   randomized_quick_sort(a, 0, a.size() - 1);
-  for (size_t i = 0; i < a.size(); ++i) {
+  for (size_t i = 0; i < a.size(); ++i)
+  {
     std::cout << a[i] << ' ';
   }
 }
